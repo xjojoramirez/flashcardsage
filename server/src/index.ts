@@ -18,6 +18,12 @@ app.use(
 );
 app.use(express.json());
 
+app.get('/decks', async (req: Request, res: Response) => {
+    const decks = await Deck.find();
+    res.json(decks);
+})
+
+
 app.get('/',(req: Request, res: Response) => {
     res.send('index page');
 })
